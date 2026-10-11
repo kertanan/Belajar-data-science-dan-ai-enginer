@@ -1,0 +1,3 @@
+Retrieval Augmented Generation (RAG) adalah teknik yang menggabungkan pencarian dokumen dengan model bahasa.
+Sistem RAG mengambil potongan dokumen yang relevan melalui pencarian vektor, lalu memberikan konteks tersebut kepada model bahasa untuk menghasilkan jawaban yang lebih akurat.
+Testing pipeline RAG dilakukan dengan mengukur Hit Rate dan latensi retrieval.

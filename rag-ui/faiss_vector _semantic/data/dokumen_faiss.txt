@@ -1,0 +1,3 @@
+FAISS adalah pustaka untuk pencarian kemiripan vektor yang efisien, dikembangkan oleh Facebook AI Research.
+Vector store menyimpan embedding dokumen sehingga dapat dicari berdasarkan kemiripan semantik.
+Embedding multilingual memungkinkan pencarian lintas bahasa Indonesia dan Inggris.
