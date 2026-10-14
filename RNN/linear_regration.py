@@ -88,13 +88,27 @@ pred_scaled = model.predict(x_test)
 pred = scaler.inverse_transform(pred_scaled)
 actual = scaler.inverse_transform(y_test)
 
-plt.figure(figsize=(15, 5))
-plt.plot(actual, label="Aktual")
-plt.plot(pred, label="Prediksi")
-plt.title("Prediksi Suhu Minimum Harian (LSTM)")
-plt.xlabel("Hari (data test)")
-plt.ylabel("Suhu (C)")
+
+plt.figure(figsize=(8, 8))  # Menggunakan rasio 1:1 agar aspek visualnya seimbang
+
+plt.scatter(actual, pred, color='blue', alpha=0.5, label="Titik Data")
+
+lims = [
+    np.min([actual.min(), pred.min()]),  # Nilai minimum global
+    np.max([actual.max(), pred.max()])   # Nilai maksimum global
+]
+plt.plot(lims, lims, color='red', linestyle='--', alpha=0.75, zorder=3, label="Ideal (Perfect Match)")
+
+
+plt.title("Analisis Scatter Plot: Aktual vs Prediksi Suhu Minimum Harian")
+plt.xlabel("Suhu Aktual (°C)")
+plt.ylabel("Suhu Prediksi (°C)")
+plt.xlim(lims)
+plt.ylim(lims)
+plt.grid(True, linestyle=':', alpha=0.6)
 plt.legend()
 plt.tight_layout()
-plt.savefig("hasil_prediksi.png")
-print("Grafik disimpan ke hasil_prediksi.png")
+
+# Penyimpanan
+plt.savefig("hasil_prediksi_scatter.png")
+print("Grafik scatter plot disimpan ke hasil_prediksi_scatter.png")
